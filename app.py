@@ -12,6 +12,10 @@ def hello():
 def index():
     return db.all_photos()
 
+@app.route("/photos/<id>.json")
+def show(id):
+    return db.show_photo(id)
+
 @app.route("/photos.json", methods=["POST"])
 def create():
     name = request.form.get("name")
